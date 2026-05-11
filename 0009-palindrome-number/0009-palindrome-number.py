@@ -12,6 +12,6 @@ class Solution(object):
             s=s*10+d 
         if s==num:
             return True
-        else:
-            return False    
+        
+        return False    
         
