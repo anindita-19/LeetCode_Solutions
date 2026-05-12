@@ -1,8 +1,27 @@
 class Solution:
-    def search(self, nums: List[int], target: int) -> int:
-        
-        for i in range(len(nums)):
-            if nums[i] == target:
-                return i
-        return -1                
+    def search(self, nums: List[int], target: int) -> int: 
+        start=0
+        end=len(nums)-1
+        while start<=end:
+            mid=(start+end)//2
+            
+            if target == nums[mid]:
+                return mid
+            #left sorted
+            if nums[mid]>=nums[start]:
+                if target>=nums[start] and target<nums[mid]:
+                    end=mid-1
+                else:
+                    start=mid+1
+
+            #right sorted        
+            elif nums[mid]<=nums[end]:
+                if target>nums[mid] and target<=nums[end]:
+                    start=mid+1
+                else:
+                    end=mid-1
+        return -1                            
+
+
+                           
                 
